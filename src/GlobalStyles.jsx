@@ -11,6 +11,12 @@ export default createGlobalStyle`
         text-decoration: none;
     }
 
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: #0c0c0c;
+        color: #ffffff;
+    }
+
     img {
         max-width: 100%;
     }
