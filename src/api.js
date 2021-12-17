@@ -14,7 +14,7 @@ export default {
         slug: "originals",
         title: "Originais da Netflix",
         items: await fetchData(
-          `/discover/tv?with_network=213&language=pt-BR&api_key=${API_KEY}`
+          `/discover/tv?with_watch_providers=8&watch_region=BR&language=pt-BR&api_key=${process.env.REACT_APP_API_KEY}`
         ),
       },
       {
@@ -67,5 +67,28 @@ export default {
         ),
       },
     ];
+  },
+
+  getMovieInfo: async (movieId, type) => {
+    let info = {};
+
+    if (movieId) {
+      switch (type) {
+        case "movie":
+          info = await fetchData(
+            `/movie/${movieId}?language=pt-BR&api_key=${process.env.REACT_APP_API_KEY}`
+          );
+          break;
+        case "tv":
+          info = await fetchData(
+            `/tv/${movieId}?language=pt-BR&api_key=${process.env.REACT_APP_API_KEY}`
+          );
+          break;
+        default:
+          info = null;
+      }
+    }
+
+    return info;
   },
 };

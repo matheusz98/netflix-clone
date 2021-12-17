@@ -11,7 +11,7 @@ export const HeaderContainer = styled.header`
   left: 0;
   background: ${({ backgroundColor }) =>
     backgroundColor ? "#0c0c0c" : "transparent"};
-  z-index: 99;
+  z-index: 999;
   padding: 0 30px;
   transition: 0.3s ease-in-out;
 `;
@@ -20,7 +20,9 @@ export const HeaderLogo = styled.div`
   height: 30px;
 `;
 
-export const HeaderLink = styled.a``;
+export const HeaderLink = styled.a`
+  cursor: pointer;
+`;
 
 export const LogoImg = styled.img`
   height: 100%;
@@ -31,7 +33,9 @@ export const HeaderUser = styled.div`
   height: 35px;
 `;
 
-export const HeaderProfile = styled.a``;
+export const HeaderProfile = styled.a`
+  cursor: pointer;
+`;
 
 export const ProfileImg = styled.img`
   height: 100%;
