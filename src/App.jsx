@@ -32,6 +32,27 @@ const App = () => {
     margin-top: -150px;
   `;
 
+  const Loading = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background: #0c0c0c;
+  `;
+
+  const LoadingImg = styled.img`
+    width: 25%;
+
+    @media (max-width: 768px) {
+      width: 60%;
+    }
+  `;
+
   return (
     <>
       <GlobalStyles />
@@ -43,6 +64,14 @@ const App = () => {
             <MovieCards key={index} title={item.title} items={item.items} />
           ))}
         </MovieList>
+        {movies.length <= 0 && (
+          <Loading>
+            <LoadingImg
+              src="https://media.filmelier.com/noticias/br/2020/03/Netflix_LoadTime.gif"
+              alt="Carregando"
+            />
+          </Loading>
+        )}
       </Homepage>
     </>
   );
