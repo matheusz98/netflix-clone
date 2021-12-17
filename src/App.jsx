@@ -9,15 +9,6 @@ import MovieCards from "./components/MovieCards";
 const App = () => {
   const [movies, setMovies] = useState([]);
   const [featureData, setFeatureData] = useState(null);
-  const [blackHeader, setBlackHeader] = useState(false);
-
-  const changeBackground = () => {
-    if (window.scrollY >= 80) {
-      setBlackHeader(true);
-    } else {
-      setBlackHeader(false);
-    }
-  };
 
   useEffect(() => {
     const loadData = async () => {
@@ -35,11 +26,6 @@ const App = () => {
     loadData();
   }, []);
 
-  useEffect(() => {
-    changeBackground();
-    window.addEventListener("scroll", changeBackground);
-  }, []);
-
   const Homepage = styled.section``;
 
   const MovieList = styled.section`
@@ -50,7 +36,7 @@ const App = () => {
     <>
       <GlobalStyles />
       <Homepage>
-        <Header black={blackHeader} />
+        <Header />
         {featureData && <Hero item={featureData} />}
         <MovieList>
           {movies.map((item, index) => (

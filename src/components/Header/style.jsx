@@ -9,8 +9,7 @@ export const HeaderContainer = styled.header`
   top: 0;
   right: 0;
   left: 0;
-  background: ${({ backgroundColor }) =>
-    backgroundColor ? "#0c0c0c" : "transparent"};
+  background: ${({ scrollNav }) => (scrollNav ? "#0c0c0c" : "transparent")};
   z-index: 999;
   padding: 0 30px;
   transition: 0.3s ease-in-out;

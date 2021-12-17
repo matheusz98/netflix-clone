@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+
 import {
   HeaderContainer,
   HeaderLogo,
@@ -9,8 +11,22 @@ import {
 } from "./style";
 
 const Header = ({ black }) => {
+  const [scrollNav, setScrollNav] = useState(false);
+
+  const changeNavBg = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else {
+      setScrollNav(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", changeNavBg);
+  }, []);
+
   return (
-    <HeaderContainer backgroundColor={black}>
+    <HeaderContainer scrollNav={scrollNav}>
       <HeaderLogo>
         <HeaderLink>
           <LogoImg
